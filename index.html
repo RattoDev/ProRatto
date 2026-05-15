@@ -7115,14 +7115,12 @@
   const calActModalTitle = document.getElementById('cal-act-modal-title');
   const calActModalTag = document.getElementById('cal-act-modal-tag');
   const calActModalDesc = document.getElementById('cal-act-modal-desc');
-  const calActModalOport = document.getElementById('cal-act-modal-oport');
   const calActModalClose = document.getElementById('cal-act-modal-close');
   const calActModalBack = document.getElementById('cal-act-modal-back');
 
   function abrirActModal(itemBtn) {
     const label = itemBtn.dataset.label;
     const desc = itemBtn.dataset.desc;
-    const oport = itemBtn.dataset.oport;
     const isRatto = itemBtn.dataset.ratto === 'true';
     const iconName = itemBtn.querySelector('.cal-icon').dataset.icon;
 
@@ -7137,7 +7135,6 @@
     calActModalTag.classList.toggle('is-ratto', isRatto);
     calActModalHeader.classList.toggle('is-ratto', isRatto);
     calActModalDesc.textContent = desc;
-    calActModalOport.textContent = oport;
 
     calActModal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -8560,7 +8557,6 @@
         html += '<button type="button" class="cal-item ' + ratto + '" ' +
           'data-label="' + escapeAttr(a.label) + '" ' +
           'data-desc="' + escapeAttr(a.desc) + '" ' +
-          'data-oport="' + escapeAttr(a.oport) + '" ' +
           'data-ratto="' + (a.ratto ? 'true' : 'false') + '">' +
           '<div class="cal-icon" data-icon="' + a.icon + '"></div>' +
           '<div class="cal-label">' + a.label + '</div>' +
@@ -9841,7 +9837,6 @@
           'data-termino="' + escapeAttr(t.termino) + '" ' +
           'data-def="' + escapeAttr(t.def) + '" ' +
           'data-tec="' + escapeAttr(t.tec) + '" ' +
-          'data-oport="' + escapeAttr(t.oport) + '" ' +
           'data-modelos="' + escapeAttr(modelos) + '">' +
           '<span class="glo-term-name">' + t.termino + '</span>' +
           '<span class="glo-term-arrow">→</span>' +
@@ -9983,7 +9978,6 @@
             termino: btn.dataset.termino || '',
             def: btn.dataset.def || '',
             tec: btn.dataset.tec || '',
-            oport: btn.dataset.oport || '',
             modelos: btn.dataset.modelos || '',
             s7: btn.dataset.s7 === 'true',
             cat: cat,
@@ -10001,7 +9995,6 @@
               termino: t.termino,
               def: t.def,
               tec: t.tec,
-              oport: t.oport,
               modelos: t.modelos || '',
               s7: t.s7 === true,
               cat: catObj.id,
@@ -10252,7 +10245,6 @@
   const gloModalTitle = document.getElementById('glo-term-modal-title');
   const gloModalDef = document.getElementById('glo-term-modal-def');
   const gloModalTec = document.getElementById('glo-term-modal-tec');
-  const gloModalOport = document.getElementById('glo-term-modal-oport');
   const gloModalClose = document.getElementById('glo-term-modal-close');
   const gloModalBack = document.getElementById('glo-term-modal-back');
 
@@ -10275,7 +10267,7 @@
       termino: termBtn.dataset.termino,
       def: termBtn.dataset.def,
       tec: termBtn.dataset.tec,
-      oport: termBtn.dataset.oport,
+
       modelos: termBtn.dataset.modelos || '',
       s7: termBtn.dataset.s7 === 'true',
     };
@@ -10283,7 +10275,7 @@
     gloModalTitle.textContent = gloTerminoActivo.termino;
     gloModalDef.textContent = gloTerminoActivo.def;
     gloModalTec.textContent = gloTerminoActivo.tec;
-    gloModalOport.textContent = gloTerminoActivo.oport;
+
 
     // Sección "Encontrá esta función en" — solo si hay modelos
     const modelosSection = document.getElementById('glo-term-modal-modelos-section');
